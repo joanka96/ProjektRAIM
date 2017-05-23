@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Ankieta dotycząca zagrożenia zawałami serca</title>
+</head>
+<body>
+    <h1>Ankieta dotycząca zagrożenia zawałami serca</h1>
+    <form action="/poll">
+        {{ pyt1.question }}<br>
+        <select name="field">
+            {% for e in pyt1.fields %}
+            <option value="{{ e }}">{{ e }} </option>
+            <br>
+            {% endfor %}
+        </select><br>
+        {{ pyt2.question }}<br>
+        <select name="field2">
+            {% for e in pyt2.fields %}
+            <option value="{{ e }}">{{ e }} </option>
+            <br>
+            {% endfor %}
+        </select><br>
+        {{ pyt3.question }}<br>
+        <select name="field3">
+            {% for e in pyt3.fields %}
+            <option value="{{ e }}">{{ e }} </option><br>
+            {% endfor %}
+        </select><br>
+
+        {{ pyt4.question }}<br>
+        <select name="field4">
+            {% for e in pyt4.fields %}
+            <option value="{{ e }}">{{ e }} </option>
+            <br>
+            {% endfor %}
+        </select><br>
+
+        {{ pyt5.question }}<br>
+        {% for e in pyt5.fields %}
+        <input type="radio" name="field5" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt6.question }}<br>
+        {% for e in pyt6.fields %}
+        <input type="radio" name="field6" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt7.question }}<br>
+        {% for e in pyt7.fields %}
+        <input type="radio" name="field7" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt8.question }}<br>
+        {% for e in pyt8.fields %}
+        <input type="radio" name="field8" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt9.question }}<br>
+        {% for e in pyt9.fields %}
+        <input type="radio" name="field9" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt10.question }}<br>
+        {% for e in pyt10.fields %}
+        <input type="radio" name="field10" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt11.question }}<br>
+        {% for e in pyt11.fields %}
+        <input type="radio" name="field11" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt12.question }}<br>
+        {% for e in pyt12.fields %}
+        <input type="radio" name="field12" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt13.question }}<br>
+        {% for e in pyt13.fields %}
+        <input type="radio" name="field13" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+        {{ pyt14.question }}<br>
+        {% for e in pyt14.fields %}
+        <input type="radio" name="field14" checked value="{{ e }}"> {{ e }}<br>
+        {% endfor %}
+
+
+        <input type="submit" value="Wyślij" />
+    </form>
+</body>
+</html>
