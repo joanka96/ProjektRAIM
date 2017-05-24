@@ -41,6 +41,7 @@
     <Folder Include="FlaskWebProject3\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FlaskWebProject3\static\sstyle.css" />
     <Content Include="requirements.txt" />
     <Content Include="FlaskWebProject3\static\content\bootstrap.css" />
     <Content Include="FlaskWebProject3\static\content\bootstrap.min.css" />

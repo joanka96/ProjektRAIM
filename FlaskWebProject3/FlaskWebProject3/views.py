@@ -15,81 +15,77 @@ def close_connection(exception):
         db.close()
 
 
-pyt1 = {
+plec = {
    'question' : 'Plec:',
    'fields'   : ['Kobieta', 'Mezczyzna']
 }
 
-pyt2 = {
+wiek = {
    'question' : 'Wiek:',
    'fields'   : [n for n in range(18,120)]
 }
 
-pyt3 = {
+waga = {
    'question' : 'Waga w kilogramach:',
    'fields'   : [n for n in range(40,200)]
 }
 
-pyt4 = {
+wzrost = {
    'question' : 'Wzrost w centymetrach:',
    'fields'   : [n for n in range(130,230)]
 }
 
-pyt5 = {
+przebytyZawal = {
    'question' : 'Czy w przeszlosci przebyl Pan/Pani zawal?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt6 = {
+nadcisnienie = {
    'question' : 'Czy zdiagnozowano u Pana/Pani nadcisnienie?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt7 = {
+chorobaWiencowa = {
    'question' : 'Czy zdiagnozowano u Pana/Pani chorobe wiencowa?',
    'fields'   : ['Tak', 'Nie']
 }
 
 
-pyt8 = {
+cukrzyca = {
    'question' : 'Czy zdiagnozowano u Pana/Pani cukrzyce?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt9 = {
+cholesterol = {
    'question' : 'Czy zdiagnozowano u Pana/Pani zwiekszony poziom cholesterolu?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt10 = {
+palenie= {
    'question' : 'Czy pali Pan/Pani papierosy?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt11 = {
-   'question' : 'Czy uprawia Pan/Pani regularnie jakis sport (min. 3 razy w tygodniu po 30 min)?',
-   'fields'   : ['Tak', 'Nie']
+sport = {
+   'question' : 'Ile razy w tygodniu uprawia Pan/Pani jakis sport (min. 30 min)?',
+   'fields'   : ['0', '1', '2', '3', '4 i wiecej']
 }
 
-pyt12 = {
+dieta = {
    'question' : 'Czy czesto spozywa Pan/Pani smazowne potrawy, slodycze?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt13 = {
+stres = {
    'question' : 'Czy czesto jest Pan/Pani narazony na stres?',
    'fields'   : ['Tak', 'Nie']
 }
 
-pyt14 = {
-   'question' : 'Czy w Pana/Pani rodzine wystepowaly zawaly serca?',
-   'fields'   : ['Tak', 'Nie']
+historia = {
+   'question' : 'Czy w Pana/Pani biologicznej rodzine (rodzice, dziadkowie, rodznstwo, dzieci) wystepowaly zawaly serca?',
+   'fields'   : ['Tak', 'Nie', 'Nie wiem']
 }
 
-odpowiedzi = {
-   'tak' : 12,
-   'nie'   : 33
-}
 DATABASE = 'database.db'
 def get_db():
     db = getattr(g, '_database', None)
@@ -101,20 +97,32 @@ filename = 'data.txt'
 
 @app.route('/')
 def root():
-    return render_template('poll.html', pyt1=pyt1, pyt2=pyt2, pyt3=pyt3, pyt4=pyt4, pyt5=pyt5, pyt6=pyt6, pyt7=pyt7, pyt8=pyt8, pyt9=pyt9, pyt10=pyt10, pyt11=pyt11, pyt12=pyt12, pyt13=pyt13, pyt14=pyt14)
+    return render_template('poll.html', pyt1=plec, pyt2=wiek, pyt3=waga, pyt4=wzrost, pyt5=przebytyZawal, pyt6=nadcisnienie, pyt7=chorobaWiencowa, pyt8=cukrzyca, pyt9=cholesterol, pyt10=palenie, pyt11=sport, pyt12=dieta, pyt13=stres, pyt14=historia)
  
 def convert(response):
     if response =='Tak':
         return 1
     elif response =='Nie':
         return 0
+    elif response =='Nie wiem':
+        return 2
+    elif response =='0':
+        return 0
+    elif response =='1':
+        return 1
+    elif response =='2':
+        return 2
+    elif response =='3':
+        return 3
+    elif response =='4 i wiecej':
+        return 4
     else:
         raise
 def convert_gender(response):
     if response =='Kobieta':
-        return 1
-    elif response =='Mezczyzna': 
         return 0
+    elif response =='Mezczyzna': 
+        return 1
     else:
         raise
 
@@ -144,7 +152,7 @@ def add_polls():
 def poll():
     add_polls()
  
-    return render_template('thankyou.html', data=pyt1)
+    return render_template('thankyou.html', data=wiek)
 
 
 

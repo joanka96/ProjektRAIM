@@ -1,18 +1,14 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='sstyle.css') }}">
 <head>
     <title>{{ data.question }}</title>
 </head>
 <body>
-    <h1>Results for</h1>
+    <h1>Wyniki analizy ankiet wkrótce</h1>
     {{ data.question }}
 
-    <ul>
-        {% for e in votes %}
-        <li>{{ e }} {{ votes[e] }}</li>
-        {% endfor %}
-    </ul>
 
 </body>
 </html>
