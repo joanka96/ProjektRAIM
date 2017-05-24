@@ -22,7 +22,7 @@ plec = {
 
 wiek = {
    'question' : 'Wiek:',
-   'fields'   : [n for n in range(18,120)]
+   'fields'   : [n for n in range(18,105)]
 }
 
 waga = {
